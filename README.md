@@ -85,6 +85,29 @@ implementation("androidx.appcompat:appcompat:1.4.1")
 implementation("androidx.activity:activity-ktx:1.7.0")
 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
 ```
+### implementation("androidx.room:room-ktx:2.4.1"):
+
+- Room KTX é uma extensão do Room, que é a biblioteca de persistência de dados do Android. O Room KTX fornece APIs Kotlin-friendly para facilitar a integração com Room, utilizando recursos como funções de extensão (por exemplo, suspend functions para operações assíncronas). Essa dependência é útil para simplificar o uso de Room em projetos Kotlin.
+
+### kapt("androidx.room:room-compiler:2.4.1"):
+
+- Room Compiler é necessário para gerar código automaticamente para as classes que definem as entidades e os DAO (Data Access Object). O Room usa processamento de anotação para gerar esse código, e o KAPT (Kotlin Annotation Processing Tool) é necessário para que o Kotlin execute esse processo. Portanto, essa dependência é fundamental para compilar os componentes do Room em um projeto Kotlin.
+
+### implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"):
+
+- LiveData KTX é uma extensão do LiveData, que é uma classe do Android Lifecycle que permite gerenciar dados observáveis. O LiveData KTX facilita o uso do LiveData em Kotlin, com funções de extensão que tornam o código mais conciso e expressivo. Ele é usado para observar dados que podem ser alterados ao longo do tempo e garantir que a interface do usuário seja atualizada de forma reativa.
+
+### implementation("androidx.appcompat:appcompat:1.4.1"):
+
+- AppCompat é uma biblioteca que fornece compatibilidade com versões antigas do Android, permitindo usar os recursos mais recentes em versões do Android que não os suportam nativamente. Isso inclui, por exemplo, temas, widgets e recursos de UI modernos em dispositivos mais antigos. A dependência appcompat garante que sua aplicação tenha uma aparência e comportamento consistentes em diferentes versões do Android.
+
+### implementation("androidx.activity:activity-ktx:1.7.0"):
+
+- Activity KTX fornece extensões Kotlin para trabalhar com Activity no Android. Essas extensões tornam o código mais conciso e fácil de ler, simplificando tarefas comuns ao interagir com a Activity, como navegação, manipulação de resultados de atividades e outros aspectos do ciclo de vida da Activity.
+
+### implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"):
+
+- Kotlin Coroutines for Android é a dependência necessária para usar coroutines no Android. As coroutines são uma maneira eficiente de realizar operações assíncronas no Kotlin, como chamadas de rede, manipulação de IO ou tarefas longas, sem bloquear a thread principal. Essa dependência fornece suporte específico para o uso de coroutines em aplicativos Android.
 
 ---
 
