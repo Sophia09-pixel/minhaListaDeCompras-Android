@@ -123,6 +123,13 @@ data class ItemModel(
     val name: String
 )
 ```
+- Define a entidade do banco de dados.
+
+- @Entity: marca a classe como uma tabela no banco de dados Room.
+
+- @PrimaryKey(autoGenerate = true): define o campo id como chave primária gerada automaticamente.
+
+- val name: String: campo da tabela que armazena o nome do item.
 
 ### `ItemDao.kt`
 
@@ -139,6 +146,13 @@ interface ItemDao {
     fun delete(item: ItemModel)
 }
 ```
+- Define o Data Access Object (DAO) com as operações no banco:
+
+- getAll(): retorna todos os itens como LiveData, permitindo atualização automática da interface quando os dados mudarem.
+
+- insert(item): insere um novo item na tabela.
+
+- delete(item): remove um item da tabela.
 
 ### `ItemDatabase.kt`
 
@@ -148,6 +162,11 @@ abstract class ItemDatabase : RoomDatabase() {
     abstract fun itemDao(): ItemDao
 }
 ```
+- Define o banco de dados Room:
+
+- @Database(...): especifica as entidades (tabelas) e a versão.
+
+- abstract fun itemDao(): função para obter a instância do DAO.
 
 ---
 
@@ -184,6 +203,15 @@ class ItemsViewModel(application: Application) : AndroidViewModel(application) {
     }
 }
 ```
+- Classe ViewModel que gerencia os dados da UI de forma reativa e sobrevive a mudanças de configuração (como rotação de tela).
+
+- Room.databaseBuilder(...): cria a instância do banco de dados Room.
+
+- viewModelScope.launch(Dispatchers.IO): executa as operações de banco em uma thread separada (não na principal).
+
+- addItem: cria e insere um novo item.
+
+- removeItem: remove o item informado.
 
 ---
 
@@ -221,6 +249,19 @@ class ItemsAdapter(private val onItemRemoved: (ItemModel) -> Unit)
     }
 }
 ```
+- Adapta os dados (ItemModel) para exibição em uma lista (RecyclerView).
+
+- onItemRemoved: função passada como callback para remover o item ao clicar no botão.
+
+- Lista de itens exibida no RecyclerView.
+
+- Cria a visualização de cada item com base no item_layout.xml.
+
+- Liga os dados de um item (ItemModel) ao seu ViewHolder.
+
+- Classe interna que representa a visualização de um item.
+
+- Mostra o nome (item.name) e define o clique do botão para remover o item via callback.
 
 ---
 
